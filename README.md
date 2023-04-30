@@ -19,6 +19,12 @@ The Audio files are saved under the `.\output` folder for later use.
 | false | `--tpath` or `-p` | Tesseract Language model path | `.\tessdata` | - |
 | false | `--lang` or `-l` | Tesseract file name File name without extension. | `eng` | [Possible filenames](https://github.com/tesseract-ocr/tessdata_fast) |
 
+# Supported languages
+
+Please visit the related ElevenLabs [page](https://help.elevenlabs.io/hc/en-us/articles/13313366263441-What-languages-do-you-support-)
+
+Tesseract has many pretrained language [files](https://github.com/tesseract-ocr/tessdata_fast) available.
+
 # `rand`om Proxy and UserAgent
 
 Next to the executable there are two files `Proxys` and `UserAgents` you can edit these files freely as long as you keep the format, one entry per line.
