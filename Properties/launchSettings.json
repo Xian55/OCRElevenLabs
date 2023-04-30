@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OCRElevenLabs": {
+      "commandName": "Project",
+      "commandLineArgs": ""
+    }
+  }
+}

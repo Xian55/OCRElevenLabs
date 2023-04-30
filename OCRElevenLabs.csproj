@@ -1,0 +1,102 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Protonox</RootNamespace>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Protonox.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="x64\**" />
+    <Compile Remove="x86\**" />
+    <EmbeddedResource Remove="x64\**" />
+    <EmbeddedResource Remove="x86\**" />
+    <None Remove="x64\**" />
+    <None Remove="x86\**" />
+    <Page Remove="x64\**" />
+    <Page Remove="x86\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Update="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Update="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="NAudio" Version="2.1.0" />
+    <PackageReference Include="NAudio.Lame" Version="2.0.1" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="Tesseract" Version="5.2.0" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.1" />
+    <PackageReference Include="Tesseract.Drawing" Version="5.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Proxys">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="tessdata\eng.traineddata">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="UserAgents">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(SolutionDir)tessdata" "$(TargetDir)tessdata" /Y /E /i</PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="C:\Users\poler\.nuget\packages\tesseract\5.2.0\build\\..\x64\leptonica-1.82.0.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="C:\Users\poler\.nuget\packages\tesseract\5.2.0\build\\..\x64\tesseract50.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="C:\Users\poler\.nuget\packages\tesseract\5.2.0\build\\..\x86\leptonica-1.82.0.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="C:\Users\poler\.nuget\packages\tesseract\5.2.0\build\\..\x86\tesseract50.dll" />
+  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo Before Build: $(OutDir)" />
+  </Target>
+</Project>
