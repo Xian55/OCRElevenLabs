@@ -1,6 +1,6 @@
 // crawls poxy server addresses from https://spys.one/europe-proxy/
 // output format: 
-//                new Uri("PROTOCOL://ADDRESS:PORT"),
+//                PROTOCOL://ADDRESS:PORT
 
 var address = [];
 for (var item of document.querySelectorAll(".spy14")) {
@@ -24,5 +24,5 @@ for (i = 0; i < address.length; i++) {
 console.log(output);
 
 function genProxy(protocol, address) {
-    return `new Uri(\"${protocol}://${address}\"),\n`
+    return `${protocol}://${address}`
 }
