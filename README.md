@@ -66,3 +66,8 @@ While the overlay is active, pressing `ESC` exits the program.
 <p align="center">
   <img src="Images/UI.png"/>
 </p>
+
+# Tips
+
+* About gaming, be sure to set the game windowed mode.
+* While the overlay is hidden, pressing `ALT+SPACE` going to do OCR + TTS automatically.
