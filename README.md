@@ -64,5 +64,5 @@ While the overlay is active, pressing `ESC` exits the program.
 # UI
 
 <p align="center">
-  <img src="images/UI.png"/>
+  <img src="Images/UI.png"/>
 </p>
